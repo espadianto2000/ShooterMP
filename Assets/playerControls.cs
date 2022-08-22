@@ -86,6 +86,14 @@ public class playerControls : MonoBehaviour
     }
     private void disparar()
     {
-        Debug.Log("boom");
+        RaycastHit hit;
+        Ray ray = cam.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Transform objectHit = hit.transform;
+
+            Debug.Log(objectHit.name);
+        }
     }
 }
